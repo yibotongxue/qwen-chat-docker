@@ -1,0 +1,12 @@
+torch
+flask
+gunicorn
+transformers
+accelerate
+modelscope
+sentencepiece
+tiktoken
+transformers_stream_generator
+einops
+optimum
+auto-gptq
