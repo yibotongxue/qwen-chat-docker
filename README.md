@@ -69,13 +69,27 @@ curl -X POST http://localhost:7860/chat
 
 ## 自己构建
 
-你可以通过以下命令来构建镜像
+首先需要到[这个页面](https://github.com/Dao-AILab/flash-attention/releases/tag/v2.7.4.post1)寻找适合的版本的 `flash-attn`，下载到项目根目录下，本镜像使用的下载命令是
+
+```bash
+wget https://github.com/Dao-AILab/flash-attention/releases/download/v2.7.4.post1/flash_attn-2.7.4.post1+cu12torch2.6cxx11abiFALSE-cp310-cp310-linux_x86_64.whl
+```
+
+你可以按照需求修改下载的版本，但注意同时修改[Dockerfile](./Dockerfile)中的文件路径。
+
+> [!TIP]
+> 你也可以直接编译安装 `flash-attn` ，但这需要很长的时间，最好使用预编译的版本
+
+然后通过以下命令来构建镜像
 
 ```bash
 docker build -t qwen-chat .
 ```
 
 也可以根据需要修改 `Dockerfile` 中的内容，比如修改模型、修改 `Pytorch` 版本等。
+
+> [!TIP]
+> 如果你不在中国大陆，可以考虑删除镜像源替代的代码，以减轻镜像站的负担。
 
 ## 注意事项
 
